@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kees en Charles - Capture The Flag Opdrachten</title>
+    <title>Capture The Flag Opdrachten</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,22 +43,39 @@
     <div class="container">
         <h1>Capture The Flag Opdrachten</h1>
         <ul id="ctf-opdrachten">
-            <li><a href="#">Opdracht 1</a></li>
-            <li><a href="#">Opdracht 2</a></li>
-            <li><a href="#">Opdracht 3</a></li>
-            <li><a href="#">Opdracht 4</a></li>
-            <li><a href="#">Opdracht 5</a></li>
-            <li><a href="#">Opdracht 6</a></li>
-            <li><a href="#">Opdracht 7</a></li>
-            <li><a href="#">Opdracht 8</a></li>
-            <li><a href="#">Opdracht 9</a></li>
-            <li><a href="#">Opdracht 10</a></li>
+            <!-- Opdrachten zullen hier dynamisch worden toegevoegd -->
         </ul>
     </div>
 
     <script>
-        // Hier kun je JavaScript toevoegen om de Capture The Flag-opdrachten dynamisch te laden
-        // Bijvoorbeeld: het ophalen van de opdrachten via een API en deze toevoegen aan de lijst
+        const opdrachten = {
+            "Cryptografie": [
+                "Vind de verborgen boodschap in de broncode",
+                "Ontcijfer de geheime boodschap met een Caesar-cijfer"
+            ],
+            "Puzzels": [
+                "Los de puzzel op om de volgende aanwijzing te vinden",
+                "Kraak de code om toegang te krijgen tot het volgende niveau"
+            ],
+            "Webbeveiliging": [
+                "Ontdek de verborgen URL in de afbeelding"
+            ]
+        };
+
+        const opdrachtenLijst = document.getElementById("ctf-opdrachten");
+
+        for (const categorie in opdrachten) {
+            const opdrachtenInCategorie = opdrachten[categorie];
+            const categorieItem = document.createElement("li");
+            categorieItem.innerHTML = `<strong>${categorie}</strong>`;
+            opdrachtenLijst.appendChild(categorieItem);
+
+            opdrachtenInCategorie.forEach(opdracht => {
+                const opdrachtItem = document.createElement("li");
+                opdrachtItem.innerHTML = `<a href="#">${opdracht}</a>`;
+                opdrachtenLijst.appendChild(opdrachtItem);
+            });
+        }
     </script>
 </body>
 </html>
